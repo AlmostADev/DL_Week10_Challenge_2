@@ -11,7 +11,7 @@ class Rectangulo
 
   # Agregar un método de instancia llámado lados en ambas clases. El método debe imprimir un string con las medidas de los lados.
   def lados
-    puts "Las medidas de los lados del Rectangulo son #{}"
+    puts "El largo del rectangulo es #{@largo} y su ancho es #{@ancho}"
   end
 end
 
@@ -26,7 +26,7 @@ class Cuadrado
 
   # Agregar un método de instancia llámado lados en ambas clases. El método debe imprimir un string con las medidas de los lados.
   def lados
-    puts "Las medidas de los lados del Cuadrado son #{}"
+    puts "Los medidas de los lados del cuadrado son #{@lado}"
   end
 end
 
@@ -40,10 +40,23 @@ module Formula
 
   # Dentro del módulo Formula crear un método llamado area que reciba dos argumentos (lados) y devuelva el área.
   def Area
-
+    case self
+      when Cuadrado
+        "El area del cuadrado es #{@lado*@lado}"
+      when Rectangulo
+      "El area del cuadrado es #{@lado*@ancho}"
+    end
   end
 end
 
+# Instanciar un:
 
-# Instanciar un Rectangulo y un Cuadrado.
+# Rectangulo
+rec = Rectangulo.new(20, 12)
 # Imprimir el área y perímetro de los objetos instanciados utilizando el método del módulo implementado.
+print rec.Area
+
+#Cuadrado
+cua = Cuadrado.new(6)
+# Imprimir el área y perímetro de los objetos instanciados utilizando el método del módulo implementado.
+print cua.Area
