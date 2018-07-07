@@ -1,3 +1,34 @@
+# Crear un módulo llamado Formula.
+module Formula
+
+  # Dentro del módulo Formula crear un método llamado perimetro que reciba dos argumentos (lados) y devuelva el perímetro.
+  def Perimetro
+    case self
+    
+    when Rectangulo
+      Perimetro = 2 * (@largo + @ancho)
+      "El rectangulo tiene un perimetro de #{Perimetro}"
+    when Cuadrado
+      Perimetro = @lado * 4
+      "El cuadrado tiene un perimetro de #{Perimetro}"
+    end
+  end
+
+  # Dentro del módulo Formula crear un método llamado area que reciba dos argumentos (lados) y devuelva el área.
+  def Area
+    case self
+
+    when Cuadrado
+      Area = @lado * @lado
+      "El area del cuadrado es #{Area}"
+    when Rectangulo
+      Area = @lado * @ancho
+    "El area del cuadrado es #{Area}"
+    end
+  end
+
+end
+
 # Se tienen las clases Rectangulo y Cuadrado cuyos constructores reciben las medidas de los lados correspondientes.
 class Rectangulo
   attr_reader :largo, :ancho
@@ -27,25 +58,6 @@ class Cuadrado
   # Agregar un método de instancia llámado lados en ambas clases. El método debe imprimir un string con las medidas de los lados.
   def lados
     puts "Los medidas de los lados del cuadrado son #{@lado}"
-  end
-end
-
-# Crear un módulo llamado Formula.
-module Formula
-
-  # Dentro del módulo Formula crear un método llamado perimetro que reciba dos argumentos (lados) y devuelva el perímetro.
-  def Perimetro
-    
-  end
-
-  # Dentro del módulo Formula crear un método llamado area que reciba dos argumentos (lados) y devuelva el área.
-  def Area
-    case self
-      when Cuadrado
-        "El area del cuadrado es #{@lado*@lado}"
-      when Rectangulo
-      "El area del cuadrado es #{@lado*@ancho}"
-    end
   end
 end
 
