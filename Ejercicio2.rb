@@ -2,28 +2,28 @@
 module Formula
 
   # Dentro del módulo Formula crear un método llamado perimetro que reciba dos argumentos (lados) y devuelva el perímetro.
-  def Perimetro
+  def perimetro
     case self
     
     when Rectangulo
-      Perimetro = 2 * (@largo + @ancho)
-      "El rectangulo tiene un perimetro de #{Perimetro}"
+      perimetro = 2 * (@largo + @ancho)
+      "El rectangulo tiene un perimetro de #{perimetro}"
     when Cuadrado
-      Perimetro = @lado * 4
-      "El cuadrado tiene un perimetro de #{Perimetro}"
+      perimetro = @lado * 4
+      "El cuadrado tiene un perimetro de #{perimetro}"
     end
   end
 
   # Dentro del módulo Formula crear un método llamado area que reciba dos argumentos (lados) y devuelva el área.
-  def Area
+  def area
     case self
 
     when Cuadrado
-      Area = @lado * @lado
-      "El area del cuadrado es #{Area}"
+      area = @lado * @lado
+      "El area del cuadrado es #{area}"
     when Rectangulo
-      Area = @lado * @ancho
-    "El area del cuadrado es #{Area}"
+      area = @largo * @ancho
+    "El area del cuadrado es #{area}"
     end
   end
 
@@ -66,9 +66,13 @@ end
 # Rectangulo
 rec = Rectangulo.new(20, 12)
 # Imprimir el área y perímetro de los objetos instanciados utilizando el método del módulo implementado.
-print rec.Area
+puts rec.area
+puts rec.perimetro
+puts rec.lados
 
 #Cuadrado
 cua = Cuadrado.new(6)
 # Imprimir el área y perímetro de los objetos instanciados utilizando el método del módulo implementado.
-print cua.Area
+puts cua.area
+puts cua.perimetro
+puts cua.lados
