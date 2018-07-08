@@ -4,8 +4,13 @@
 require 'rack'
 class MiPrimeraWebApp
   def call(env)
-    if env['REQUEST_PATH'] == '/'
-      [202, { 'Content-Type' => 'text/html' }, ['<h1> INDEX </h1>']]
+    @url = env['REQUEST_PATH']
+    if @URL == '/INDEX'
+      [200, { 'Content-Type' => 'text/html' }, ['<h1> Estás en el Index! </h1>']]
+    elsif @URL == '/INDEX2'
+      [200, { 'Content-Type' => 'text/html' }, ['<h1> Estás en el Landing! </h1>']]
+    else
+      [404, { 'Content-Type' => 'text/html' }, [File.read("404.html")]]
     end
   end
 end
@@ -14,16 +19,3 @@ run MiPrimeraWebApp.new
 # Crear un archivo llamado 404.html cuyo body contenga una etiqueta de título con el texto "No se ha encontrado la página :(".
 
 # Modificar el archivo config.ru para adaptarlo a los siguientes requerimientos:
-
-# Si se ingresa a la url /index:
-# Agregar un código de respuesta 200.
-# Agregar en los Response Headers un Content-type de tipo text/html.
-# Agregar en el Response Body una etiqueta de título que contenga un texto "Estás en el Index!".
-# Si se ingresa a la url /otro:
-# Agregar un código de respuesta 200.
-# Agregar en los Response Headers un Content-type de tipo text/html.
-# Agregar en el Response Body una etiqueta de título que contenga un texto "Estás en otro landing!".
-# Si se ingresa a cualquier otra url:
-# Agregar un código de respuesta 404.
-# Agregar en los Response Headers un Content-type de tipo text/html.
-# Agregar en el Response Body el archivo 404.html creado al inicio.
